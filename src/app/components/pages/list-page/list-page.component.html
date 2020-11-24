@@ -1,0 +1,15 @@
+<mat-grid-list cols="3" rowHeight="3:2" >
+	<mat-grid-tile *ngFor="let item of data" routerLink="/detail/{{code}}/{{item.id}}">
+		<mat-card class="card">
+			<div class="img-preview"
+				[ngStyle]="{ 'background-image': 'url(/assets/images/placeholder.jpg)' }">
+			</div>
+			<mat-card-footer>
+				<div mat-card-avatar class="header-image"></div>
+				<div *ngIf="item.episode_id && item.title">Episode: {{item.episode_id}}: {{item.title}}</div>
+				<div *ngIf="item.name">{{item.name}}</div>
+				<mat-card-subtitle>{{item.release_date}}</mat-card-subtitle>
+			</mat-card-footer>
+		</mat-card>
+	</mat-grid-tile>
+</mat-grid-list>

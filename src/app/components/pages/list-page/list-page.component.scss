@@ -1,0 +1,18 @@
+.card {
+	max-width: 400px;
+	width: 90%;
+
+	.img-preview {
+		height: 200px;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+	}
+
+	mat-card-footer {
+		background-color: #788b91;
+		color: #fff;
+		display: block;
+		padding: 10px;
+	}
+}

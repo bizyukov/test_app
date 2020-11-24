@@ -1,0 +1,29 @@
+<div class="wrapper">
+	<div class="container">
+		<form [formGroup]="form">
+			<div *ngFor="let item of data | keyvalue">
+				<div *ngIf="!isObject(item.value) && !isArray(item.value)">
+					<mat-form-field *ngIf="form.get(item.key)" appearance="fill">
+						<mat-label>{{item.key}}</mat-label>
+						<input matInput formControlName="{{item.key}}" value="{{item.value}}">
+						<br>
+					</mat-form-field>
+				</div>
+			</div>
+		</form>
+
+		<div *ngFor="let item of data | keyvalue">
+			<div *ngIf="isObject(item.value) || isArray(item.value)">
+				<div *ngIf="isArray(item.value)" class="list">
+					<mat-list>
+						<div mat-subheader>{{item.key}}:</div>
+						<mat-list-item *ngFor="let f of item.value">
+							<div *ngIf="f.name" mat-line>{{f.name}}</div>
+							<div *ngIf="f.title" mat-line>{{f.title}}</div>
+						</mat-list-item>
+					</mat-list>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
